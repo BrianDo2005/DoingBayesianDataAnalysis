@@ -16,6 +16,7 @@ $$
 P(D = + | \theta = U) = 0.05
 $$
 
+Seeking
 $$
 P(\theta = n | D = +)?
 $$
@@ -27,5 +28,43 @@ P(\theta = n | D = +) = \frac{P(D = + | \theta = n) P(\theta = n)}{ P(D = +)} = 
 $$
 
 So $P(\theta = n | D = +) =$ `r 0.99*0.001/(0.99*0.001 + 0.05*0.999)`
+
+
+Ex 4.2
+------
+
+What is $P(n|-)$? (Just use the same formulae as above but change the prior to the answer, i.e. $P(n)$ is the outcome of above.
+
+Ex 4.3
+------
+
+Suppose population $n = 100,000$. Create the breakdown of the frequency table.
+
+A)
+
+```{r 4.3, echo = FALSE, message = FALSE, warning = FALSE, results = 'asis'}
+library(xtable)
+
+nums <- matrix( c(99,  1, 0.05*0.999*100e3, (1-0.05)*0.999*100e3), ncol=2 )
+rownames(nums) <- c("+", "-")
+colnames(nums) <- c("n", "u")
+
+nums <- cbind(nums, margin.table(nums, 1))
+nums <- rbind(nums, margin.table(nums, 2))
+print(xtable(nums))
+```
+
+C) Bottom two squares are 99 and 474,525.
+
+D) `r 100*99/474525`%
+ 
+
+Ex 4.4
+------
+
+
+Ex 4.5
+------
+
 
 
